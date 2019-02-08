@@ -248,7 +248,7 @@ public final class FkHitRefresh implements Fork {
             }
             final File[] files = this.dir.listFiles();
             boolean expired = false;
-            if (files != null) {
+            if (new Opt.Single<>(files).has()) {
                 for (final File file : files) {
                     if (file.lastModified() > recent) {
                         expired = true;
